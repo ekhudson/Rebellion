@@ -40,12 +40,14 @@ namespace Rebellion.Presentation
             UIInGameController2D.Init(this);
             UIInGameController3D.Init(this);
 
-            Selection.Initialize(UIInGameController2D);
+            Selection.Initialize(UIInGameController2D, UIInGameController3D);
             
             EntityRegistry.Initialize();
             EntitySpawnFactory.Initialize(this);
 
             TurnManager.Initialize(this);
+
+            GridManager.Init();
 
             OnMainInitializedEvent.Invoke();
         }        

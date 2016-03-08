@@ -67,9 +67,11 @@ namespace Rebellion.Presentation
             SpriteReference.sprite = sprite;
         }
 
-        private void Update()
+        protected override void Update()
         {
-            UpdateUI(); 
+            UpdateUI();
+
+            base.Update();
         }
 
         private void UpdateUI()

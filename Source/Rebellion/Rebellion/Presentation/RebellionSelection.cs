@@ -17,6 +17,7 @@ namespace Rebellion.Presentation
         public GameObject HoverMarkerPrefab;
 
         private InGameUIController2D mInGameUIController2D;
+        private InGameUIController3D mInGameUIController3D;
         private RectTransform mSelectionMarker;
         private RectTransform mHoverMarker;
         
@@ -30,11 +31,12 @@ namespace Rebellion.Presentation
             }
         }
 
-        public void Initialize(InGameUIController2D inGameUIController2D)
+        public void Initialize(InGameUIController2D inGameUIController2D, InGameUIController3D inGameUIController3D)
         {
             mInGameUIController2D = inGameUIController2D;
+            mInGameUIController3D = inGameUIController3D;
 
-            mSelectionMarker = inGameUIController2D.AddUIElement(SelectionMarkerPrefab).GetComponent<RectTransform>();
+            mSelectionMarker = mInGameUIController3D.AddUIElement(SelectionMarkerPrefab).GetComponent<RectTransform>();
             mSelectionMarker.GetComponent<Image>().enabled = false;
             
             mHoverMarker = inGameUIController2D.AddUIElement(HoverMarkerPrefab).GetComponent<RectTransform>();
@@ -55,10 +57,11 @@ namespace Rebellion.Presentation
                     mCurrentSelectedEntity = character;
 
                     Vector3 selectionPosition = character.SpriteReference.bounds.center;
-                    selectionPosition += Vector3.up * (character.SpriteReference.bounds.extents.y + SelectionMarkerVerticalOffset);
+                    selectionPosition += Vector3.up * -(character.SpriteReference.bounds.extents.y);
+                    selectionPosition += Vector3.up * (SelectionMarkerVerticalOffset);
 
-                    mSelectionMarker.anchoredPosition = CanvasUtility.WorldToCanvasPosition(mInGameUIController2D.RectTransform, selectionPosition);
-
+                    //mSelectionMarker.anchoredPosition = CanvasUtility.WorldToCanvasPosition(mInGameUIController2D.RectTransform, selectionPosition);
+                    mSelectionMarker.transform.position = selectionPosition;
                     mSelectionMarker.GetComponent<Image>().enabled = true;
 
                     break;
@@ -68,7 +71,7 @@ namespace Rebellion.Presentation
                     Vector2 delta = Vector2.zero;                    
 
                     delta.x = character.SpriteReference.bounds.size.x * mInGameUIController2D.RectTransform.lossyScale.x;
-                    delta.y = character.SpriteReference.bounds.size.y * mInGameUIController2D.RectTransform.lossyScale.y;
+                    delta.y = character.SpriteReference.bounds.extents.y * mInGameUIController2D.RectTransform.lossyScale.y;
 
                     mHoverMarker.sizeDelta = delta;
 

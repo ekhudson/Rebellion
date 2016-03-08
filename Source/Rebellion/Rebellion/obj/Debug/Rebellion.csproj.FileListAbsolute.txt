@@ -1,0 +1,5 @@
+C:\Users\Elliot\Unity Projects\Rebellion\Assets\Code\Rebellion.dll
+C:\Users\Elliot\Unity Projects\Rebellion\Assets\Code\Rebellion.pdb
+C:\Users\Elliot\Unity Projects\Rebellion\Source\Rebellion\Rebellion\obj\Debug\Rebellion.csprojResolveAssemblyReference.cache
+C:\Users\Elliot\Unity Projects\Rebellion\Source\Rebellion\Rebellion\obj\Debug\Rebellion.dll
+C:\Users\Elliot\Unity Projects\Rebellion\Source\Rebellion\Rebellion\obj\Debug\Rebellion.pdb

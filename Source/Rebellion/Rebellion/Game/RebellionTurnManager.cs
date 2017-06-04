@@ -12,7 +12,7 @@ namespace Rebellion.Game
     [System.Serializable]
     public class RebellionTurnManager
     {
-        public TestSpawnCharacter TestScript;
+        //public TestSpawnCharacter TestScript;
         private RebellionMain mRebellionMain;
 
         private List<CharacterView> mEntitiesInPlay = new List<CharacterView>();
@@ -25,7 +25,7 @@ namespace Rebellion.Game
 
         private void AddEventHandlers()
         {
-            TestScript.OnRoundStart.AddListener(OnRoundStartHandler);
+            //TestScript.OnRoundStart.AddListener(OnRoundStartHandler);
             mRebellionMain.EntitySpawnFactory.EntitySpawnCallback.AddListener(OnEntitySpawnedHandler);
         }
 

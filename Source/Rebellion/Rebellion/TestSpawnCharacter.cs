@@ -12,7 +12,8 @@ namespace Rebellion
         [System.Serializable]
         public class Spawner
         {
-            public Transform SpawnPosition;
+            public int SpawnRow;
+            public int SpawnColumn;
             public CharacterAsset CharacterToSpawn;
         }
 
@@ -33,7 +34,8 @@ namespace Rebellion
             {
                 foreach (Spawner spawner in PlayerCharacters)
                 {
-                    SpawnCharacterAtPosition(spawner.CharacterToSpawn, spawner.SpawnPosition.position, false);
+                    Vector3 pos = RebellionMainReference.GridManager.GetWorldPositionOfTile(spawner.SpawnRow, spawner.SpawnColumn);
+                    SpawnCharacterAtPosition(spawner.CharacterToSpawn, pos, false);
                 }
             }
 
@@ -41,7 +43,8 @@ namespace Rebellion
             {
                 foreach (Spawner spawner in EnemyCharacters)
                 {
-                    SpawnCharacterAtPosition(spawner.CharacterToSpawn, spawner.SpawnPosition.position, true);
+                    Vector3 enemyPos = RebellionMainReference.GridManager.GetWorldPositionOfTile(spawner.SpawnRow, spawner.SpawnColumn);
+                    SpawnCharacterAtPosition(spawner.CharacterToSpawn, enemyPos, true);
                 }
             }
 

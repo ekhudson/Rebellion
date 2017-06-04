@@ -1,7 +1,6 @@
 ﻿using System;
 
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Rebellion.Data
 {
@@ -26,5 +25,6 @@ namespace Rebellion.Data
         public Sprite ActionIcon = null;
         public ActionTargetModes TargetMode = ActionTargetModes.GROUND;
         public ActionTargetTypes TargetTypes = ActionTargetTypes.ENEMY;
+        public int[,] TargetShape = new int[30, 30];
     }
 }
